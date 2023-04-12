@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Georama:ital@1&family=Open+Sans:wght@700&family=Poppins:wght@700&family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root{
+    font-size: 62.5%; /*Deixa 1 rem equivalente a 10px*/
+}
+
+body{
+    font-size: 1.6rem;
+    background:linear-gradient(90deg,#1F2937,#A855F7);
+    
+    height: 100vh;
+
+}
+
+body,input,button{
+    font-size: 1.6rem;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+form{
+   
+    padding: 2.4rem;
+    max-width: 40rem;
+    margin: auto; /*Centralizando*/
+}
+
+#credit-card{
+    width: 32.8rem;
+    height: 21.2rem;
+    perspective: 60rem;
+}
+
+#credit-card > div{
+    width: inherit; /*Herdando a largura e altura do elemento acima e aplicando no elemento atual*/
+    height: inherit; 
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000; /*Colocando o cartão acima de outros elementos*/
+
+    transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);/*Efeito de Movimento no card*/
+    transform-style: preserve-3d;
+    backface-visibility: hidden; /*Esconde o cartão de trás*/
+}
+
+#credit-card .front{
+    background: url(https://i.ibb.co/qd7g0Xk/card-front.png) no-repeat;
+    transform: rotateY(0);
+}
+
+#credit-card .back{
+    background: url(https://i.ibb.co/vZKf20T/card-back.png) no-repeat;
+    transform: rotateY(-180deg);
+    top: -5px;
+}
+
+#credit-card:hover .front,#credit-card:active .front{
+    transform: rotateY(180deg);
+}
+
+#credit-card:hover .back, #credit-card:active .back{
+    transform: rotateY(0); /*Active serve para clique, no caso de dispostivos moveis*/
+}
+
+.flex{
+    display: flex;
+}
+
+.inputs{
+    margin-top: 4.8rem;
+    flex-direction: column; /*Alinhamento em colunas*/
+    gap: 2.4rem; /*Separação de caixas*/
+}
+
+label{
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: #E5E7EB;
+
+    align-items: center;
+    gap: .4rem;
+
+}
+
+input{
+    margin-top: .4rem;
+    width: 100%;
+
+    background: #1F2937;
+    border-radius: .4rem;
+
+    padding: 1.2rem;
+    border: .1rem solid #62347c;
+    color: #F3F4F6;
+}
+
+input:invalid:focus{
+    border: 0.15rem solid #F87185 ;
+}
+
+input + .warning{
+    display: none; /*Ocultando*/
+}
+
+input:invalid:focus + .warning{
+    font-size:1.6rem ;
+    margin-top: .8rem;
+    color: #F87185;
+
+    display: flex;
+    align-items: center;
+    gap:.4rem;
+
+} /*Procura a classe warning que vem após um invalid focus*/
+
+input:focus{
+    outline: 0.15rem solid #1E716F;
+    /*Alteração na borda do input quando o input for selecionado*/
+}
+.col-2{
+    gap: 2.4rem;
+    align-items: center;
+}
+
+/*"nth-child(2)" está selecionando o segundo input-arapper*/
+.col-2 .input-arapper:nth-child(2){
+    flex-basis: 40%; /*Deixa um campo maior ou menor*/
+}
+
+.help img{
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.info-security{
+    margin-top: 3rem ;
+    justify-content: center;
+    gap: .8rem;
+    font-size: 1.4rem;
+    color: #E5E7E8;
+}
+
+button{
+    margin-top: 3rem;
+    border: 0;
+    padding: 1.6rem;
+    width: 100%;
+    background: #9333EA;
+    box-shadow: .0rem .4rem 1.6rem rgb(0, 0, 0,1); /*deslocamento eixo X, deslocamento eixo Y e blur(espalhamento), cor */
+    border-radius: .4rem;
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    color: #F9FAF8;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+button:hover{
+    background: #A855F7;
+}
+
+#transparent-box{
+    background: transparent;
+    border-radius: .3rem;
+    box-shadow: 0 .8rem 1rem;
+    padding: 1rem;
+}
